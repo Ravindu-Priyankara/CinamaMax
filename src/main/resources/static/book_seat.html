@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Book a seat</title>
 
     <link th:href="@{/style/styles.css}" rel="stylesheet" />
@@ -9,56 +10,602 @@
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />-->
     <!-- Bootstrap Font Icon CSS -->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />-->
-</head>
-<body>
-    <label>
+    </head>
+    <body>
+    <!--please insert navigation bar-->
 
-        <center><h1 th:text="${MovieName}"/></center>
-    </label>
+        <label>
 
-    <table style="margin-left: auto;margin-right: auto;">
-        <tr>
-            <td>
-                <i class="fa fa-square-o" style="font-size:48px;color:red"></i>
-            </td>
-            <td>
+            <div style="text-align: center;"><button class="button-92" role="button"><h1 th:text="${MovieName}"/></button></div>
 
-            </td>
-            <td>
-                Already booked
-            </td>
-            <td>
-                <i class="fa fa-square" style="font-size:48px;color:greenyellow"></i>
-            </td>
-            <td>
-                <br>
-            </td>
-            <td>
-                You can booked
-            </td>
-        </tr>
-    </table>
-    <table style="margin-left: 25%;margin-right: auto">
-        <tr>
-            <td>
-                <button style="border:none;background: aqua" id = "btn1"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
-            </td>
-            <td>
-                <button style="border:none;background: aqua" id = "btn2"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="button" onclick="removeDuplicates()" th:value="values">
-            </td>
-            <td>
-                <button onclick="printValue()">value</button>
-            </td>
-            <td>
-                <div id="output"></div>
-            </td>
-        </tr>
-    </table>
-    <script type="text/javascript" th:src="@{/js/script.js}"></script> <!-- add java scrript file-->
-</body>
+        </label>
+        <br>
+        <br>
+        <br>
+
+        <table style="margin-left: auto;margin-right: auto;">
+            <tr>
+                <td>
+                    <i class="fa fa-square-o" th:style="${bookedLabel}"></i>
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    Already booked
+                </td>
+                <td>
+                    <i class="fa fa-square" th:style="${notBookedLabel}"></i>
+                </td>
+                <td>
+                    <br>
+                </td>
+                <td>
+                    You can book
+                </td>
+                <td>
+                    <button style="border:none;background: red" ><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <br>
+                </td>
+                <td>
+                    Selected
+                </td>
+            </tr>
+        </table>
+        <table style="margin-left: 10%;margin-right: auto">
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn1" onclick="button('btn1','01')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn2" onclick="button('btn2','02')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn3" onclick="button('btn3','03')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn4" onclick="button('btn4','04')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn5" onclick="button('btn5','05')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn6" onclick="button('btn6','06')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn7"onclick="button('btn7','07')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn8"onclick="button('btn8','08')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn9"onclick="button('btn9','09')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn10"onclick="button('btn10','10')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn11"onclick="button('btn11','11')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn12"onclick="button('btn12','12')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn13"onclick="button('btn13','13')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn14"onclick="button('btn14','14')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn15"onclick="button('btn15','15')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn16"onclick="button('btn16','16')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn17"onclick="button('btn17','17')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn18"onclick="button('btn18','18')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn19"onclick="button('btn19','19')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn20"onclick="button('btn20','20')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn21"onclick="button('btn21','21')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn22"onclick="button('btn22','22')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn23"onclick="button('btn23','23')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn24"onclick="button('btn24','24')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn25"onclick="button('btn25','25')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn26"onclick="button('btn26','26')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn27" onclick="button('btn27','27')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn28"onclick="button('btn28','28')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn29"onclick="button('btn29','29')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn30"onclick="button('btn30','30')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn31"onclick="button('btn31','31')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn32"onclick="button('btn32','32')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn33"onclick="button('btn33','33')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn34"onclick="button('btn34','34')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn35"onclick="button('btn35','35')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn36"onclick="button('btn36','36')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn37"onclick="button('btn37','37')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn38"onclick="button('btn38','38')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua"></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn39"onclick="button('btn39','39')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn40"onclick="button('btn40','40')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn41"onclick="button('btn41','41')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn42"onclick="button('btn42','42')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn43"onclick="button('btn43','43')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn44" onclick="button('btn44','44')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn45"onclick="button('btn45','45')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn46"onclick="button('btn46','46')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn47"onclick="button('btn47','47')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn48"onclick="button('btn48','48')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn49"onclick="button('btn49','49')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn50"onclick="button('btn50','50')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn51"onclick="button('btn51','51')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn52"onclick="button('btn52','52')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn53"onclick="button('btn53','53')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn54"onclick="button('btn54','54')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn55"onclick="button('btn55','55')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn56"onclick="button('btn56','56')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn57"onclick="button('btn57','57')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn58"onclick="button('btn58','58')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn59"onclick="button('btn59','59')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn60"onclick="button('btn60','60')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn61" onclick="button('btn61','61')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn62"onclick="button('btn62','62')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn63" onclick="button('btn63','63')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn64"onclick="button('btn64','64')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn65"onclick="button('btn65','65')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn66"onclick="button('btn66','66')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn67"onclick="button('btn67','67')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn68"onclick="button('btn68','68')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn69"onclick="button('btn69','69')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn70"onclick="button('btn70','70')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn71"onclick="button('btn71','71')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn72"onclick="button('btn72','72')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn73"onclick="button('btn73','73')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn74"onclick="button('btn74','74')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn75"onclick="button('btn75','75')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn76"onclick="button('btn76','76')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn77"onclick="button('btn77','77')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn78"onclick="button('btn78','78')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn79"onclick="button('btn79','79')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn80"onclick="button('btn80','80')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn81"onclick="button('btn81','81')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn82"onclick="button('btn82','82')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn83"onclick="button('btn83','83')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn84"onclick="button('btn84','84')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn85"onclick="button('btn85','85')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn86"onclick="button('btn86','86')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn87"onclick="button('btn87','87')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" id = "btn88"onclick="button('btn88','88')"><i class="fa fa-square" style="font-size:48px;color:greenyellow"></i></button>
+                </td>
+            </tr>
+        </table>
+        <h4 class="test1">Selected seats:<p th:id = "details" class="normal"></p></h4>
+        <br>
+        <h4 class="test1" th:id = "price_name"></h4><p th:id = "price" class="special"></p>
+
+        <div class="flip-box" style="margin-left:auto;margin-right: auto;">
+            <div class="flip-box-inner">
+                <div class="flip-box-front">
+                    <h2>Screen</h2>
+                </div>
+                <div class="flip-box-back">
+                    <h2>Screen</h2>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <table>
+            <!--<tr>
+                <td>
+
+                </td>
+                <td>
+                    <button onclick="printValue()">check prices</button>
+                </td>
+                <td>
+                    Amount of you selected seats:<div id="output"></div>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    Your price is: <div id = "price"></div>
+                    <button class="button-86" role="button">Button 86</button>
+                </td>
+            </tr>-->
+            <tr>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button class="button-73" role="button" onclick="getPrice();">Check price</button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button class="button-73" role="button" onclick="clear()">Clear selected seats</button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button style="border:none;background: aqua" ></button>
+                </td>
+                <td>
+                    <button class="button-73" role="button">Do Payments</button>
+                </td>
+            </tr>
+        </table>
+
+        <!--<script type="text/javascript" th:src="@{/js/script.js}"></script>--> <!-- add java scrript file-->
+    <script>
+        const booked = [];
+        const index = [];
+
+        function button(btnName,seatNo){
+            document.getElementById(btnName).style.backgroundColor = "red";
+            const value = seatNo;
+            if(!booked.includes(value)){
+                booked.push(value);
+                index.push(btnName);
+                document.getElementById("details").innerHTML = ""+booked.length;
+            }
+        }
+
+        function getPrice(){
+            document.getElementById("price_name").innerHTML = "Price:";
+            let sum = booked.length * 675;
+            document.getElementById("price").innerHTML = ""+sum;
+        }
+
+        function clear(){
+            for(let i = 0;i<=index.length;i++){
+                //document.getElementById(index[i]).style.backgroundColor = "greenyellow";
+                console.log(index[i]);
+            }
+            document.getElementById("details").innerHTML = "0";
+        }
+    </script>
+    </body>
 </html>

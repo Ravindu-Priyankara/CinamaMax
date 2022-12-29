@@ -11,6 +11,8 @@ public class mainController {
     public ModelAndView getTicket(Model model){
         ModelAndView mav = new ModelAndView("book_seat.html");
         mav.addObject("MovieName","avatar2"); // you need to get that from session
+        mav.addObject("bookedLabel","font-size:48px;color:blue");
+        mav.addObject("notBookedLabel","font-size:48px;color:greenyellow");
         return mav;
     }
 }
